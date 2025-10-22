@@ -1,20 +1,16 @@
 <template>
   <header class="bg-white border-b border-gray-200">
     <div class="flex items-center justify-between h-16 px-6">
-      <!-- Page Title -->
-      <div>
-        <h1 class="text-2xl font-bold text-gray-900">{{ pageTitle }}</h1>
-        <p class="text-sm text-gray-500 mt-1">{{ pageDescription }}</p>
-      </div>
+      <!-- Empty left side for balance -->
+      <div class="flex-1"></div>
 
-      <!-- Header Actions - Profile at Top Right -->
-      <div class="flex items-center space-x-4">
-        <!-- Search -->
-        <div class="relative">
+      <!-- Search Bar - Centered in available space -->
+      <div class="flex justify-center flex-1">
+        <div class="relative w-full max-w-md">
           <input
             type="text"
             placeholder="Search tasks..."
-            class="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
             <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -22,8 +18,10 @@
             </svg>
           </div>
         </div>
+      </div>
 
-        <!-- User Profile -->
+      <!-- User Profile -->
+      <div class="flex-1 flex justify-end">
         <div class="flex items-center space-x-3">
           <div class="text-right">
             <p class="text-sm font-medium text-gray-900">{{ authStore.user?.name }}</p>
@@ -42,35 +40,6 @@
 
 <script setup>
 import { useAuthStore } from '@/stores/auth'
-import { useRoute } from 'vue-router'
-import { computed } from 'vue'
 
 const authStore = useAuthStore()
-const route = useRoute()
-
-const pageTitles = {
-  '/': 'Dashboard',
-  '/projects': 'Projects',
-  '/tasks': 'Task Management',
-  '/tasks/create': 'Create New Task',
-  '/tasks/:id/edit': 'Edit Task',
-  '/calendar': 'Calendar'
-}
-
-const pageDescriptions = {
-  '/': 'Overview of your tasks and progress',
-  '/projects': 'Manage your projects and teams',
-  '/tasks': 'Manage and track all your tasks',
-  '/tasks/create': 'Add a new task to your list',
-  '/tasks/:id/edit': 'Update task details',
-  '/calendar': 'View your tasks and deadlines in calendar view'
-}
-
-const pageTitle = computed(() => {
-  return pageTitles[route.path] || 'Task Management'
-})
-
-const pageDescription = computed(() => {
-  return pageDescriptions[route.path] || 'Manage your tasks efficiently'
-})
 </script>
