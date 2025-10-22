@@ -14,6 +14,13 @@ api.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
+
+    // Add CSRF token if available
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    if (csrfToken) {
+        config.headers['X-CSRF-TOKEN'] = csrfToken;
+    }
+    
     return config
   },
   (error) => {
