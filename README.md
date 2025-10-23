@@ -1,44 +1,72 @@
-# task-management-frontend
+# Task Management System - Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue.js 3 frontend for the task management system with real-time Kanban board.
 
-## Recommended IDE Setup
+## 🚀 Quick Setup
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Prerequisites
+- Node.js 16+
+- Backend API running on http://localhost:8000
 
-## Recommended Browser Setup
+### Installation
+```bash
+# Clone repository
+git clone <frontend-repo-url>
+cd task-management-frontend
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+# Install dependencies
 npm install
-```
 
-### Compile and Hot-Reload for Development
+# Environment setup
+cp .env.example .env
 
-```sh
+# Configure API URL in .env
+VITE_API_BASE_URL=http://localhost:8000/api
+
+# Start development server
 npm run dev
 ```
 
-### Compile and Minify for Production
+## 🎯 Features
+- User authentication
+- Task Kanban board with drag & drop
+- Real-time task management
+- Responsive design with Tailwind CSS
+- Role-based UI (Admin/User views)
 
-```sh
+## 📱 Usage
+1. Open http://localhost:5173
+2. Login with credentials:
+   - Admin: admin@example.com / password
+   - User: john@example.com / password
+3. Create, update, and manage tasks via drag & drop
+
+## 🏗 Development
+```bash
+# Development server
+npm run dev
+
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 🔧 Configuration
+Update `VITE_API_BASE_URL` in `.env` to match your backend API URL.
 
-```sh
-npm run lint
+## 🚀 Production
+```bash
+npm run build
+# Deploy dist/ folder to your web server
 ```
+
+## 🔗 API Integration
+The frontend automatically integrates with the backend API:
+- Authentication via Laravel Sanctum
+- Real-time task updates
+- Automatic token management
+- Error handling
+
+Both projects are designed to work together seamlessly. Start the backend first, then the frontend.
