@@ -11,7 +11,7 @@ Vue.js 3 frontend for the task management system with real-time Kanban board.
 ### Installation
 ```bash
 # Clone repository
-git clone <frontend-repo-url>
+git clone https://github.com/rintu007/task-management-frontend.git
 cd task-management-frontend
 
 # Install dependencies
