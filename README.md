@@ -17,9 +17,6 @@ cd task-management-frontend
 # Install dependencies
 npm install
 
-# Environment setup
-cp .env.example .env
-
 # Configure API URL in .env
 VITE_API_BASE_URL=http://localhost:8000/api
 
